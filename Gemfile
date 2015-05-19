@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+group :production do
+  gem 'pg'
+  gem 'rails_12factor', '0.0.2'
+end
 #securely configure Rails applications
 gem "figaro"
 #mail
