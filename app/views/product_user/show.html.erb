@@ -1,0 +1,43 @@
+<p id="notice"><%= notice %></p>
+<div class="section">
+  <h1>Product details</h1>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @product.name %>
+  </p>
+
+  <p>
+    <b>Average rating:</b>
+    <% if (!(@product.comment).blank?) %>
+   		<%= stars(@product.comment.average(:rating).round) %>
+   	<% else %>
+   		Product has not been rated
+   	<% end %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @product.description.html_safe %>
+  </p>
+
+  <p>
+    <strong>Img:</strong>
+    <%= @product.img %>
+  </p>
+  <p>
+    <strong>Price:</strong>
+    <%= @product.price %>
+  </p>
+  <%= link_to 'Back', product_user_index_path %>
+</div>
+<h1>List comments:</h1>
+<% @product.comment.each do |comment| %>
+  <div class="commentDiv">
+    <h3><b><%= comment.author%>:</b></h3>
+    <p>Rating: <%= stars(comment.rating) %></p>
+    <p><b><%= comment.title %></b> <%= comment.content %></p>
+    <p><i><%= time_ago_in_words(comment.created_at)%></i></p>
+  </div>
+<% end %>
+

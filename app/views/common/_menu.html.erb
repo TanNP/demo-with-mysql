@@ -1,0 +1,45 @@
+<div id="templatemo_menu">
+    <ul>
+        <li><%= link_to home_sayhello_path do %>
+            <span>01.</span>
+            Home
+            <% end %>
+        </li>
+        <li><%= link_to product_user_index_path do %>
+            <span>02.</span>
+            Products
+            <% end %>
+        </li>
+        
+        <li><%= link_to home_services_path do %>
+            <span>03.</span>
+            Services
+            <% end %>
+        </li>
+        <li><%= link_to home_about_path do %>
+            <span>04.</span>
+            About us
+            <% end %>
+        </li>
+        <li><%= link_to excercise_excercise1_path do %>
+            <span>05.</span>
+            Excercise
+            <% end %>
+        </li>
+        <% if is_admin? %>
+        <li><%= link_to products_path do %>
+            <span>05.</span>
+            Admin
+            <% end %>
+        </li>
+        <% end %>
+           <!--  <li><%= link_to "About", home_about_path %></li>
+           <li><%= link_to "Service", home_services_path %></li> -->
+           <!--  <li><a href="#" class="current">  <span>.01</span>  Home</a></li>
+            <li><a href="http://www.templatemo.com/page/1" target="_parent"><span>.02</span>Templates</a></li>
+            <li><a href="http://www.flashmo.com/page/1" target="_parent"><span>.03</span>Flash</a></li>
+            <li><a href="http://www.koflash.com" target="_parent"><span>.04</span>Gallery</a></li>
+            <li><a href="#"><span>.05</span>Company</a></li>
+            <li><a href="#"><span>.06</span>Contact</a></li> -->
+    </ul>    	
+</div> <!-- end of templatemo_menu -->

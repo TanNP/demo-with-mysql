@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+<div class="section">
+  <h1>Product details</h1>
+
+  <p>
+    <strong>Name:</strong>
+    <%= @product.name %>
+  </p>
+
+  <p>
+    <b>Average rating:</b>
+    <% if (!(@product.comment).blank?) %>
+      <%= stars(@product.comment.average(:rating).round) %>
+    <% else %>
+      Product has not been rated
+    <% end %>
+  </p>
+
+  <p>
+    <strong>Description:</strong>
+    <%= @product.description.html_safe %>
+  </p>
+
+  <p>
+    <strong>Img:</strong>
+    <%= @product.img %>
+  </p>
+  <p>
+    <strong>Price:</strong>
+    <%= @product.price %>
+  </p>
+  <%= link_to 'Edit', edit_product_path(@product) %> |
+  <%= link_to 'Back', products_path %>
+</div>
+<h1>List comments:</h1>
+<% @product.comment.descending.each do |comment| %>
+  <div class="commentDiv">
+    <h3><b><%= comment.author%>:</b></h3>
+    <p>Rating: <%= stars(comment.rating) %></p>
+    <p><b><%= comment.title %></b> <%= comment.content.html_safe %></p>
+    <p><i><%= time_ago_in_words(comment.created_at)%></i></p>
+    <% if can? :destroy, comment %>
+      <%= link_to "Delete comment", product_comment_path(@product, comment), data: {confirm: 'Are you sure?'}, :method => :delete %>
+    <% end %> 
+  </div>
+<% end %>
+  
+<%= render 'comment_form' %>
+

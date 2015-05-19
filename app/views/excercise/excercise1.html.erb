@@ -1,0 +1,11 @@
+<%= render 'day' %>
+<%= form_tag("/excercise/excercise1", method: "post") do %>
+  <%= text_field_tag(:number) %>
+  <%= submit_tag("sort") %>
+<% end %>
+<% if !@number.blank? %>
+<h3>Your number</h3>
+<%= @number %>
+<h3>sorted:</h3>
+<%= getNum(@number) %>
+<% end %>

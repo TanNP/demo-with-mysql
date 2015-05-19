@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title>DemoWithMySQL</title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= csrf_meta_tags %>
+    
+	<script language="javascript" type="text/javascript">
+	function clearText(field)
+	{
+		if (field.defaultValue == field.value) field.value = '';
+		else if (field.value == '') field.value = field.defaultValue;
+	}
+	</script>
+
+	<script language="javascript" type="text/javascript">
+	window.addEvents({
+		'domready': function(){
+			/* thumbnails example , div containers */
+			new SlideItMoo({
+				overallContainer: 'SlideItMoo_outer',
+				elementScrolled: 'SlideItMoo_inner',
+				thumbsContainer: 'SlideItMoo_items',		
+				itemsVisible: 5,
+				elemsSlide: 3,
+				duration: 200,
+				itemsSelector: '.SlideItMoo_element',
+				itemWidth: 140,
+				showControls:1});
+		},
+		
+	});
+	</script>
+
+</head>
+<body>
+<div id="templatemo_wrapper">
+	<%= render 'common/menu' %>
+    <%= render 'common/header_bar' %>   
+    <div class="cleaner"></div>   
+    <%= render 'common/side_bar' %>  
+    <div id="templatmeo_content">   
+    	<%= render 'common/lastestProduct' %>
+        <div class="content_section">
+        <%= yield %>  
+        </div>
+    </div> <!-- end of templatmeo_content -->   
+</div> <!-- end of templatemo_wrapper -->
+<%= render 'common/footer' %>
+</body>
+</html>

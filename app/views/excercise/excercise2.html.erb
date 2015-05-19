@@ -1,0 +1,11 @@
+<%= render 'day' %>
+<%= form_tag("/excercise/excercise2", method: "post") do %>
+  <%= text_field_tag(:line) %>
+  <%= submit_tag("Get Shortest String") %>
+<% end %>
+<% if !@line.blank? %>
+<h3>Your line</h3>
+<%= @line %>
+<h3>Shortest string:</h3>
+<%= getShortestString(@line) %>
+<% end %>
